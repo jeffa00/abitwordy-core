@@ -1,13 +1,19 @@
 $(document).ready(function () {
+
+    if (abwWordlistExists) {
+        alert('Wordlist exists!');
+    } else {
+        alert('Wordlist does NOT exist. :-(');
+    }
+
     $('#test-word-button').click(function() {
         var wordToTest = $('#word-to-test').val();
+        var wordExists = abwTestWord(wordToTest);
 
-        var idx = $.inArray(wordToTest.toLowerCase(), wordlist);
-
-        if( idx != -1){
-            alert(wordToTest + ' is in the list.');
-        }else{
-            alert(wordToTest + ' is NOT in the list.');
+        if (wordExists){
+            alert(wordToTest + ' is in the list');
+        } else {
+            alert(wordToTest + ' is NOT in the list');
         }
     });
 });
