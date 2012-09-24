@@ -1,4 +1,19 @@
 $(document).ready(function() {
+    
+    abwIndices = [];
+
+    abwLoadIndices = function() {
+        for(var i=0; i < abwWordlist.length; i++) {
+            var wordLength = abwWordlist[i].length;
+
+            if (abwIndices[wordLength]) {
+               abwIndices[wordLength].push(i);
+            } else {
+               abwIndices[wordLength] = [];
+               abwIndices[wordLength].push(i);
+            } 
+        }
+    }
 
     abwWordlistExists = function() {
         if (abwWordlist) {
@@ -17,4 +32,19 @@ $(document).ready(function() {
             return false;
         }
     }
+
+    abwGetRandomWord = function() {
+        var maxIdx = abwWordlist.length;
+
+        var selectedIdx = Math.floor(Math.random() * (maxIdx + 1));
+
+        return abwWordlist[selectedIdx];
+    }
+
+/*    abwGetRandomWord2 = function(int minLetters) {
+        alert("foo");
+    });
+*/
+    abwLoadIndices();
+
 });
