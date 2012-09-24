@@ -41,10 +41,24 @@ $(document).ready(function() {
         return abwWordlist[selectedIdx];
     }
 
-/*    abwGetRandomWord2 = function(int minLetters) {
-        alert("foo");
-    });
-*/
+    abwGetRandomWordWithSpecifiedLetterCount = function(letterCount) {
+        var tempList = abwIndices[letterCount];
+
+        var maxIdx = tempList.length;
+
+        var selectedIdx = Math.floor(Math.random() * (maxIdx + 1));
+
+        var wordIdx = tempList[selectedIdx];
+
+        var word = abwWordlist[wordIdx];
+
+        return word; 
+    }
+
+    /*    abwGetRandomWord2 = function(int minLetters) {
+          alert("foo");
+          });
+          */
     abwLoadIndices();
 
 });
